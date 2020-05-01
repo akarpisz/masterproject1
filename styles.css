@@ -1,0 +1,34 @@
+/* stylesheet for the masterproject1 "brews and blues" 
+will need to create border box for the card divs
+*/
+*,*::before,  *::after {
+    box-sizing: border-box;
+    
+}
+#welcome {
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    color: blue;
+    text-decoration: underline;
+    font-style: oblique;
+    text-shadow: black 2px 2px;
+}
+.container0 {
+    position: realtive;
+    float: left;
+    
+}
+.container1 {
+    position: relative;
+    float: right;
+}
+#brews {
+    width: 400px;
+    height: 50px;
+
+}
+#blues {
+    width: 400px;
+    height: 50px;
+}
