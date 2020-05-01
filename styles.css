@@ -39,11 +39,15 @@ will need to create border box for the card divs
 #drinks {
     padding: 10px;
     color: brown;
+    margin-right: 10px;
+    padding-right: 10px;
 }
 #music {
     padding: 10px;
     color: blue;
-
+    margin-left: 10px;
+    padding-left: 10px;
+    
 }
 p {
     text-align: center;
@@ -56,5 +60,9 @@ p {
 #info-box {
     padding: 20px;
     margin-top: 10px;
+    height: 100px;
     
+}
+body {
+    background-image: radial-gradient( grey, white);
 }
