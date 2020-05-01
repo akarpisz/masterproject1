@@ -3,8 +3,10 @@ will need to create border box for the card divs
 */
 *,*::before,  *::after {
     box-sizing: border-box;
+    font-family: concert one;
     
 }
+/* styling for the header*/
 #welcome {
     font-size: 40px;
     font-weight: 500;
@@ -14,36 +16,50 @@ will need to create border box for the card divs
     font-style: oblique;
     text-shadow: black 2px 2px;
 }
+/*styling for brews card */
 .container0 {
     position: realtive;
     float: left;
     box-shadow: black 5px 10px 5px 10px;
     margin-right: 10px;
+    background-image: radial-gradient(blue, red) ; 
 
 }
+/* styling for the music card */
 .container1 {
     position: relative;
     float: right;
     box-shadow: black 5px 10px 5px 10px;
     margin-left: 10px;
+    background-image: radial-gradient(blue, red);
 }
+/* styling for the search */
 #brews {
     width: 700px;
-    height: 200px;
-
+    height: 50px;
+    background-color: white;
 }
+
 #blues {
     width: 700px;
-    height: 200px;
+    height: 50px;
+    background-color: white;
 }
 #drinks {
     padding: 10px;
     color: brown;
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    height: 50px
 }
 #music {
     padding: 10px;
     color: blue;
-
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    height: 50px;
 }
 p {
     text-align: center;
@@ -56,5 +72,22 @@ p {
 #info-box {
     padding: 20px;
     margin-top: 10px;
+    height: 400px;
+    background-image:url(https://images.unsplash.com/photo-1513189737554-b1bbd839b9a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
     
+}
+#info-box1{
+    padding: 20px;
+    margin-top: 10px;
+    height: 400px;
+    background-image: url(https://images.unsplash.com/photo-1518553343323-b5547b620030?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+}
+body {
+    background-image: radial-gradient(blue, red);
+}
+.placard {
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
+    font-style: unset;
 }
