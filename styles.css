@@ -18,7 +18,7 @@ will need to create border box for the card divs
 }
 /*styling for brews card */
 .container0 {
-    position: realtive;
+    position: relative;
     float: left;
     box-shadow: black 5px 10px 5px 10px;
     margin-right: 10px;
@@ -32,6 +32,7 @@ will need to create border box for the card divs
     box-shadow: black 5px 10px 5px 10px;
     margin-left: 10px;
     background-image: radial-gradient(blue, red);
+    
 }
 /* styling for the search */
 #brews {
@@ -39,12 +40,13 @@ will need to create border box for the card divs
     height: 50px;
     background-color: white;
 }
-
+/* styling for the search input*/
 #blues {
     width: 700px;
     height: 50px;
     background-color: white;
 }
+/*styling for the other search input*/
 #drinks {
     padding: 10px;
     color: brown;
@@ -53,6 +55,7 @@ will need to create border box for the card divs
     padding-top: 10px;
     height: 50px
 }
+/*styling for the search button*/
 #music {
     padding: 10px;
     color: blue;
@@ -61,6 +64,15 @@ will need to create border box for the card divs
     padding-top: 10px;
     height: 50px;
 }
+/*hover style for search button*/
+#drinks:hover { 
+    background-color: green;
+}
+/* hover style for the otherr search button*/
+#music:hover {
+    background-color: green;
+}
+/* styling for the intro paragraph*/
 p {
     text-align: center;
     font-size: 24px;
@@ -69,25 +81,52 @@ p {
     text-shadow: black 1px 1px;
     
 }
+/*styyling for the div box*/
 #info-box {
     padding: 20px;
     margin-top: 10px;
     height: 400px;
-    background-image:url(https://images.unsplash.com/photo-1513189737554-b1bbd839b9a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    /*background-image: url(https://images.unsplash.com/photo-1513189737554-b1bbd839b9a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);*/
     
 }
+/* styling for the other div box*/
 #info-box1{
     padding: 20px;
     margin-top: 10px;
     height: 400px;
-    background-image: url(https://images.unsplash.com/photo-1518553343323-b5547b620030?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+   /*background-image: url(https://images.unsplash.com/photo-1518553343323-b5547b620030?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);*/
 }
+/* styling for the backgorund*/
 body {
     background-image: radial-gradient(blue, red);
 }
+/* styling for the h1 in the cards */
 .placard {
     color: blue;
     text-align: center;
     text-decoration: underline;
     font-style: unset;
+}
+/*styling for the images in the music div*/
+#blues-img {
+    display: block;
+    width: 75%;
+    height: auto;
+
+}
+/* styling for the brewery image div*/
+#brew-img {
+    display: block;
+    width: 75%;
+    height: auto;
+}
+/* styling for the results div*/
+#results {
+    position: absolute;
+    margin-top: 600px;
+    margin-left: 600px;
+    box-shadow: black 5px 10px 5px 10px;
+    width: 700px;
+    height: 300px;
+
 }
