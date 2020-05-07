@@ -13,6 +13,7 @@ will need to create border box for the card divs
     text-align: center;
     color: blue;
     text-decoration: underline;
+    text-decoration-color: black;
     font-style: oblique;
     text-shadow: black 2px 2px;
 }
@@ -20,7 +21,7 @@ will need to create border box for the card divs
 .container0 {
     position: relative;
     float: left;
-    box-shadow: black 5px 10px 5px 10px;
+    box-shadow: black 5px 5px 5px 5px;
     margin-right: 10px;
     background-image: radial-gradient(blue, red) ; 
 
@@ -29,8 +30,8 @@ will need to create border box for the card divs
 .container1 {
     position: relative;
     float: right;
-    box-shadow: black 5px 10px 5px 10px;
-    margin-left: 10px;
+    box-shadow: black 5px 5px 5px 5px;
+    margin-left: auto;
     background-image: radial-gradient(blue, red);
     
 }
@@ -50,7 +51,8 @@ will need to create border box for the card divs
 #drinks {
     padding: 10px;
     color: brown;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     padding-right: 10px;
     padding-top: 10px;
     height: 50px
@@ -59,7 +61,8 @@ will need to create border box for the card divs
 #music {
     padding: 10px;
     color: blue;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     padding-right: 10px;
     padding-top: 10px;
     height: 50px;
@@ -68,7 +71,7 @@ will need to create border box for the card divs
 #drinks:hover { 
     background-color: green;
 }
-/* hover style for the otherr search button*/
+/* hover style for the other search button*/
 #music:hover {
     background-color: green;
 }
@@ -81,7 +84,7 @@ p {
     text-shadow: black 1px 1px;
     
 }
-/*styyling for the div box*/
+/*styling for the div box*/
 #info-box {
     padding: 20px;
     margin-top: 10px;
@@ -106,11 +109,16 @@ body {
     text-align: center;
     text-decoration: underline;
     font-style: unset;
+    font-weight: 500;
+    text-decoration-color: black;
+    text-shadow: yellow 0px 0px 10px, green 0px 0px 10px;
 }
 /*styling for the images in the music div*/
 #blues-img {
     display: block;
     width: 75%;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
 
 }
@@ -118,15 +126,38 @@ body {
 #brew-img {
     display: block;
     width: 75%;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
 }
 /* styling for the results div*/
 #results {
+    color: red;
+    display: block;
     position: absolute;
     margin-top: 600px;
-    margin-left: 600px;
+    margin-left: 550px;
+    margin-right: 550px;
     box-shadow: black 5px 10px 5px 10px;
     width: 700px;
-    height: 300px;
+    height: 600px;
 
+}
+#cheers {
+    
+    display: block;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    opacity: .5;
+}
+#placard2 {
+    color: blue;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-align: center;
+    font-style: unset;
+    text-shadow: yellow 0px 0px 10px, green 0px 0px 10px;
 }
