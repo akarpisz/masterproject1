@@ -36,6 +36,13 @@ var stateCode;
 var venueUrl;
 var eventDist;
 
+var evNameSpan;
+var evAddrSpan;  
+var venUrlSpan;
+var venLink;
+var evDistSpan;
+
+
 var newDiv;
 var resNameSpan;
 var resAddrSpan;
@@ -85,6 +92,7 @@ function renderBars() {
     resHrsSpan = $("<span>");
     resUrlSpan = $("<span>");
     ratingSpan = $("<span>");
+    resDist = $("<span>");
     resLink = $("<a>");
 
     //JSON.parse
@@ -98,12 +106,13 @@ function renderBars() {
       restaurants[i].restaurant.user_rating.aggregate_rating
     );
 
-    dist = distance(lat, lon, resLat, resLon);
+    dist = (distance(lat, lon, resLat, resLon)).toFixed(2);
 
     resNameSpan.html(resName + "<br/>");
     resAddrSpan.html(resAddress + "<br/>");
     resHrsSpan.html("Hours: " + hours + "<br/>");
     ratingSpan.html("Rating: " + resRating + "<br/>");
+    resDist.html(dist + " miles" + "<br/>");
     resLink.html("Click for details" + "<br/>");
     resLink.attr("href", resURL);
     resLink.attr("target", "_blank");
@@ -114,6 +123,7 @@ function renderBars() {
         resAddrSpan,
         resHrsSpan,
         ratingSpan,
+        resDist,
         resUrlSpan,
         "<br/>"
       )
@@ -163,39 +173,45 @@ function renderConcerts() {
     venueUrl = evObj[i]._embedded.venues[0].url;
     evLat = parseFloat(evObj[i]._embedded.venues[0].location.latitude);
     evLon = parseFloat(evObj[i]._embedded.venues[0].location.longitude);
-    eventDist = distance(lat, lon, evLat, evLon);
+    eventDist = (distance(lat, lon, evLat, evLon)).toFixed(2);
 
-    console.log(eventDist);
+    newDiv = $("<div>");
+    evNameSpan = $("<span>");
+    evAddrSpan = $("<span>");
+    venUrlSpan = $("<span>");
+    venLink = $("<a>");
+    evDistSpan = $("<span>");
+
+    evNameSpan.html(band + "<br/>");
+    evAddrSpan.html(addr + "<br/>");
+    venLink.html("Venue Details" + "<br/>");
+    venLink.attr("src", venueUrl);
+    venLink.attr("target", "_blank");
+    
+    evDistSpan.html(eventDist + "miles " + "<br/>");
+
+    venUrlSpan.append(venLink);
+    resultsDiv.append(newDiv.append(evNameSpan, evAddrSpan, venUrlSpan, evDistSpan, "<br/>"));
   }
 }
 $(musicBtn).on("click", function (e) {
   e.preventDefault();
-  bing =
-    "http://dev.virtualearth.net/REST/v1/Locations/" +
+  tmUrl =
+    "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&latlong=" +
     lat +
     "," +
     lon +
-    "?includeEntityTypes=Postcode1&inclnb=0&key=ApwvG3nj84vYuuLndoBvpO-v-2DRvBYWOMe6Qn91TMKEEDNpjri-pNSd-ihAIT_Q";
+    "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
+  // tmUrl =
+  //   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=fJ8NqHO29YPZO64hyJI671TsUFTHgAfT";
 
   $.ajax({
-    url: bing,
+    url: tmUrl,
     method: "GET",
   }).then(function (response) {
-    postCode = response.resourceSets[0].resources[0].address.postalCode;
-    console.log(postCode);
-    console.log(response);
-
-    // tmUrl = "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&classificationName=music&postalCode=" + postCode + "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
-    tmUrl =
-      "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=fJ8NqHO29YPZO64hyJI671TsUFTHgAfT";
-
-    $.ajax({
-      url: tmUrl,
-      method: "GET",
-    }).then(function (response) {
-      resultNum = parseInt(response.page.totalElements);
-      evObj = response._embedded.events;
-      renderConcerts();
-    });
+    resultNum = parseInt(response.page.totalElements);
+    evObj = response._embedded.events;
+    console.log(evObj)
+    renderConcerts();
   });
 });
