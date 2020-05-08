@@ -143,8 +143,8 @@ body {
     height: 600px;
 
 }
+/* styling for the results*/
 #cheers {
-    
     display: block;
     width: 75%;
     margin-left: auto;
@@ -152,6 +152,7 @@ body {
     margin-top: 100px;
     opacity: .5;
 }
+/* styling for the h2 in the results div */
 #placard2 {
     color: blue;
     font-weight: 500;
