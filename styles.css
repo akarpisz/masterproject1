@@ -15,20 +15,22 @@ will need to create border box for the card divs
     text-decoration: underline;
     text-decoration-color: black;
     font-style: oblique;
-    text-shadow: black 2px 2px;
+    text-shadow: yellow 0px 0px 10px, green 0px 0px 10px;
 }
 /*styling for brews card */
 .container0 {
     position: relative;
+    border-radius: 5px;
     float: left;
     box-shadow: black 5px 5px 5px 5px;
-    margin-right: 10px;
+    margin-right: 20px;
     background-image: radial-gradient(blue, red) ; 
 
 }
 /* styling for the music card */
 .container1 {
     position: relative;
+    border-radius: 5px;
     float: right;
     box-shadow: black 5px 5px 5px 5px;
     margin-left: auto;
@@ -78,10 +80,11 @@ will need to create border box for the card divs
 /* styling for the intro paragraph*/
 p {
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 400;
     color: blue;
-    text-shadow: black 1px 1px;
+    text-shadow: black 1px 1px, yellow 0px 0px 10px, green 0px 0px 10px;
+
     
 }
 /*styling for the div box*/
@@ -132,16 +135,17 @@ body {
 }
 /* styling for the results div*/
 #results {
-    color: red;
+    color: limegreen;
+    font-size: 24px;
     display: block;
     position: absolute;
     margin-top: 600px;
     margin-left: 550px;
     margin-right: 550px;
     box-shadow: black 5px 10px 5px 10px;
-    width: 700px;
-    height: 600px;
-
+    width: auto;
+    height: auto;
+    border-radius: 5px;
 }
 /* styling for the results*/
 #cheers {
@@ -149,8 +153,8 @@ body {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
-    opacity: .5;
+    margin-top: 50px;
+    
 }
 /* styling for the h2 in the results div */
 #placard2 {
