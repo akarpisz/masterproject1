@@ -1,5 +1,6 @@
 var drinkBtn = $("#drinks");
 var resultsDiv = $("#results");
+var clearBtn = $("#clear");
 
 var test;
 var city;
@@ -81,6 +82,10 @@ function distance(lat, lon, lat2, lon2) {
   }
 }
 
+
+function clear() {
+    $('#results').children().not('div:first').empty();
+}
 function renderBars() {
   if (resultsDiv.hasClass("hide")) {
     resultsDiv.removeClass("hide");
@@ -95,7 +100,6 @@ function renderBars() {
     resDist = $("<span>");
     resLink = $("<a>");
 
-    //JSON.parse
     resAddress = restaurants[i].restaurant.location.address;
     resLat = restaurants[i].restaurant.location.latitude;
     resLon = restaurants[i].restaurant.location.longitude;
@@ -131,8 +135,11 @@ function renderBars() {
   }
 }
 
+$(clearBtn).on("click", clear());
+
 $(drinkBtn).on("click", function (e) {
   e.preventDefault();
+  
 
   query =
     "https://developers.zomato.com/api/v2.1/search?lat=" +
@@ -154,6 +161,8 @@ $(drinkBtn).on("click", function (e) {
     renderBars();
   });
 });
+
+
 
 function renderConcerts() {
   if (resultNum === 0) {
