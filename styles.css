@@ -23,7 +23,8 @@ will need to create border box for the card divs
     border-radius: 5px;
     float: left;
     box-shadow: black 5px 5px 5px 5px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
     background-image: radial-gradient(blue, red) ; 
 
 }
@@ -34,6 +35,7 @@ will need to create border box for the card divs
     float: right;
     box-shadow: black 5px 5px 5px 5px;
     margin-left: auto;
+    margin-right: auto;
     background-image: radial-gradient(blue, red);
     
 }
@@ -42,40 +44,48 @@ will need to create border box for the card divs
     width: 700px;
     height: 50px;
     background-color: white;
+    border-radius: 5px;
+    margin-left: 5px;
 }
 /* styling for the search input*/
 #blues {
     width: 700px;
     height: 50px;
     background-color: white;
+    border-radius: 5px;
+    margin-left: 5px;
 }
-/*styling for the other search input*/
+/*styling for the other search button*/
 #drinks {
+    border-radius: 5px;
     padding: 10px;
-    color: brown;
+    color: red;
     margin-left: 5px;
     margin-right: 5px;
     padding-right: 10px;
     padding-top: 10px;
-    height: 50px
+    height: 52px
+    
+
 }
 /*styling for the search button*/
 #music {
+    border-radius: 5px;
     padding: 10px;
-    color: blue;
+    color: red;
     margin-left: 5px;
     margin-right: 5px;
     padding-right: 10px;
     padding-top: 10px;
-    height: 50px;
+    height: 52px;
 }
 /*hover style for search button*/
 #drinks:hover { 
-    background-color: green;
+    background-color: blue;
 }
 /* hover style for the other search button*/
 #music:hover {
-    background-color: green;
+    background-color: blue;
 }
 /* styling for the intro paragraph*/
 p {
@@ -84,13 +94,12 @@ p {
     font-weight: 400;
     color: blue;
     text-shadow: black 1px 1px, yellow 0px 0px 10px, green 0px 0px 10px;
-
-    
 }
 /*styling for the div box*/
 #info-box {
     padding: 20px;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     height: 400px;
     /*background-image: url(https://images.unsplash.com/photo-1513189737554-b1bbd839b9a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);*/
     
@@ -98,7 +107,8 @@ p {
 /* styling for the other div box*/
 #info-box1{
     padding: 20px;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     height: 400px;
    /*background-image: url(https://images.unsplash.com/photo-1518553343323-b5547b620030?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);*/
 }
@@ -138,11 +148,10 @@ body {
     color: limegreen;
     font-size: 24px;
     display: block;
-    position: absolute;
-    margin-top: 600px;
-    margin-left: 550px;
-    margin-right: 550px;
-    box-shadow: black 5px 10px 5px 10px;
+    margin-top: 610px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: black 5px 5px 5px 5px;
     width: auto;
     height: auto;
     border-radius: 5px;
@@ -150,11 +159,10 @@ body {
 /* styling for the results*/
 #cheers {
     display: block;
-    width: 75%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    
+    margin-top: 50px;   
 }
 /* styling for the h2 in the results div */
 #placard2 {

@@ -38,7 +38,7 @@ var venueUrl;
 var eventDist;
 
 var evNameSpan;
-var evAddrSpan;  
+var evAddrSpan;
 var venUrlSpan;
 var venLink;
 var evDistSpan;
@@ -84,7 +84,7 @@ function distance(lat, lon, lat2, lon2) {
 
 
 function clear() {
-    $('#results').children().not('div:first').empty();
+  $('#results').children().not('div:first').empty();
 }
 function renderBars() {
   if (resultsDiv.hasClass("hide")) {
@@ -136,10 +136,9 @@ function renderBars() {
 }
 
 $(clearBtn).on("click", clear());
-
 $(drinkBtn).on("click", function (e) {
   e.preventDefault();
-  
+
 
   query =
     "https://developers.zomato.com/api/v2.1/search?lat=" +
@@ -196,7 +195,7 @@ function renderConcerts() {
     venLink.html("Venue Details" + "<br/>");
     venLink.attr("src", venueUrl);
     venLink.attr("target", "_blank");
-    
+
     evDistSpan.html(eventDist + "miles " + "<br/>");
 
     venUrlSpan.append(venLink);
