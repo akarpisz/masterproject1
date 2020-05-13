@@ -148,21 +148,21 @@ $(drinkBtn).on("click", function (e) {
     "&lon=" +
     lon +
     "&radius=4000&establishment_type=283%2C161%2C292&category=11&sort=real_distance&order=asc";
-}
+
 
   $.ajax({
-  headers: {
-    "user-key": "54777615f3d90f6470638ab304cca90e",
-    Accept: "application/json",
-  },
-  url: query,
-  method: "GET",
-}).then(function (response) {
-  restaurants = response.restaurants;
-  console.log(restaurants);
-  resultsDiv.removeClass("hide");
-  renderBars();
-});
+    headers: {
+      "user-key": "54777615f3d90f6470638ab304cca90e",
+      Accept: "application/json",
+    },
+    url: query,
+    method: "GET",
+  }).then(function (response) {
+    restaurants = response.restaurants;
+    console.log(restaurants);
+    resultsDiv.removeClass("hide");
+    renderBars();
+  });
 });
 
 
