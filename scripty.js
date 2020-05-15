@@ -185,7 +185,15 @@ else if (brewInput !== "") {
     restaurants = response.restaurants;
     console.log(restaurants);
     resultsDiv.removeClass("hide");
+
+    if (restaurants.length === 0) {
+      newDiv = $("<div>");
+      newDiv.html("<h2>" + "Change your search keywords for better results" + "</h2>");
+      resultsDiv.append(newDiv);
+    }
+    else{
     renderBars();
+    }
   });
 });
 
@@ -193,9 +201,11 @@ else if (brewInput !== "") {
 
 function renderConcerts() {
   if (resultNum === 0) {
-    alert("No live events within a 50 mile radius");
+    newDiv = $("<div>");
+      newDiv.html("<h2>" + "Change your search keywords for better results" + "</h2>");
+      resultsDiv.append(newDiv);
   }
-
+  
   if (resultsDiv.hasClass("hide")) {
     resultsDiv.removeClass("hide");
   }
@@ -262,13 +272,6 @@ else if (brewInput !== "") {
   "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
 }
 
-
-  tmUrl =
-    "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&latlong=" +
-    lat +
-    "," +
-    lon +
-    "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
   // tmUrl =
   //   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=fJ8NqHO29YPZO64hyJI671TsUFTHgAfT";
 
@@ -278,7 +281,7 @@ else if (brewInput !== "") {
   }).then(function (response) {
     resultNum = parseInt(response.page.totalElements);
     evObj = response._embedded.events;
-    console.log(evObj)
+    console.log(evObj);
     renderConcerts();
   });
 });
