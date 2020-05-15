@@ -2,7 +2,7 @@ var drinkBtn = $("#drinks");
 var brewInput = $("#brews");
 var resultsDiv = $("#results");
 var clearBtn = $("#clear");
-var bluesInput = $("#blues");
+var bluesInput =$("#blues");
 
 var city;
 var cityId;
@@ -39,7 +39,7 @@ var venueUrl;
 var eventDist;
 
 var evNameSpan;
-var evAddrSpan;
+var evAddrSpan;  
 var venUrlSpan;
 var venLink;
 var evDistSpan;
@@ -85,7 +85,7 @@ function distance(lat, lon, lat2, lon2) {
 
 
 function clear() {
-  $('#results').children().not('div:first').empty();
+    $(resultsDiv).children().not('div:first').empty();
 }
 
 function renderBars() {
@@ -137,11 +137,35 @@ function renderBars() {
   }
 }
 
-$(clearBtn).on("click", clear());
+$(clearBtn).on("click", function(e) {
+  e.preventDefault();
+  clear();
+});
+
 $(drinkBtn).on("click", function (e) {
   e.preventDefault();
-
-
+  if(brewInput.val().trim().indexOf(' ') >= 0){
+     brewInput = brewInput.val().split(" ");
+     brewInput = brewInput.join("%20");
+     console.log(brewInput);
+     query =
+    "https://developers.zomato.com/api/v2.1/search?q=" + brewInput + "&lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&radius=4000&cuisines=227&establishment_type=283%2C161%2C292&category=11&sort=real_distance&order=asc";
+} 
+else if (brewInput !== "") {
+  var input = brewInput.val().trim();
+  console.log(input);
+  query =
+    "https://developers.zomato.com/api/v2.1/search?q=" + input + "&lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&radius=4000&cuisines=227&establishment_type=283%2C161%2C292&category=11&sort=real_distance&order=asc";
+  
+} else {
   query =
     "https://developers.zomato.com/api/v2.1/search?lat=" +
     lat +
@@ -151,18 +175,18 @@ $(drinkBtn).on("click", function (e) {
 }
 
   $.ajax({
-  headers: {
-    "user-key": "54777615f3d90f6470638ab304cca90e",
-    Accept: "application/json",
-  },
-  url: query,
-  method: "GET",
-}).then(function (response) {
-  restaurants = response.restaurants;
-  console.log(restaurants);
-  resultsDiv.removeClass("hide");
-  renderBars();
-});
+    headers: {
+      "user-key": "54777615f3d90f6470638ab304cca90e",
+      Accept: "application/json",
+    },
+    url: query,
+    method: "GET",
+  }).then(function (response) {
+    restaurants = response.restaurants;
+    console.log(restaurants);
+    resultsDiv.removeClass("hide");
+    renderBars();
+  });
 });
 
 
@@ -199,7 +223,7 @@ function renderConcerts() {
     venLink.html("Venue Details" + "<br/>");
     venLink.attr("src", venueUrl);
     venLink.attr("target", "_blank");
-
+    
     evDistSpan.html(eventDist + "miles " + "<br/>");
 
     venUrlSpan.append(venLink);
@@ -208,35 +232,35 @@ function renderConcerts() {
 }
 $(musicBtn).on("click", function (e) {
   e.preventDefault();
-  if (bluesInput.val().trim().indexOf(' ') >= 0) {
+  if(bluesInput.val().trim().indexOf(' ') >= 0){
     bluesInput = bluesInput.val().split(" ");
     bluesInput = bluesInput.join("%20");
     console.log(bluesInput);
     tmUrl =
-      "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&keyword=" + bluesInput + "&latlong=" +
-      lat +
-      "," +
-      lon +
-      "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
-  }
-  else if (brewInput !== "") {
-    var input = bluesInput.val().trim();
-    console.log(input);
-    tmUrl =
-      "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&keyword=" + input + "&latlong=" +
-      lat +
-      "," +
-      lon +
-      "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
-
-  } else {
-    tmUrl =
-      "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&latlong=" +
-      lat +
-      "," +
-      lon +
-      "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
-  }
+    "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&keyword=" + bluesInput + "&latlong=" +
+    lat +
+    "," +
+    lon +
+    "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
+} 
+else if (brewInput !== "") {
+ var input = bluesInput.val().trim();
+ console.log(input);
+ tmUrl =
+    "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&keyword=" + input + "&latlong=" +
+    lat +
+    "," +
+    lon +
+    "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
+ 
+} else {
+  tmUrl =
+  "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&latlong=" +
+  lat +
+  "," +
+  lon +
+  "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
+}
 
 
   tmUrl =
