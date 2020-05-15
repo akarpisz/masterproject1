@@ -137,7 +137,8 @@ function renderBars() {
   }
 }
 
-$(clearBtn).on("click", clear());
+$(clearBtn).on("click", function(e) {
+  clear()});
 $(drinkBtn).on("click", function (e) {
   e.preventDefault();
 
@@ -148,7 +149,6 @@ $(drinkBtn).on("click", function (e) {
     "&lon=" +
     lon +
     "&radius=4000&establishment_type=283%2C161%2C292&category=11&sort=real_distance&order=asc";
-}
 
   $.ajax({
   headers: {
