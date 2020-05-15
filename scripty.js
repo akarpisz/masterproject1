@@ -11,7 +11,6 @@ var lon;
 var lat;
 var query;
 var restaurants = {};
-// var unit = "K";
 var resLat;
 var resLon;
 var dist;
@@ -57,8 +56,6 @@ var resDist;
 navigator.geolocation.getCurrentPosition((position) => {
   lat = parseFloat(position.coords.latitude);
   lon = parseFloat(position.coords.longitude);
-  console.log(lat);
-  console.log(lon);
 });
 
 function distance(lat, lon, lat2, lon2) {
@@ -147,7 +144,6 @@ $(drinkBtn).on("click", function (e) {
   if(brewInput.val().trim().indexOf(' ') >= 0){
      brewInput = brewInput.val().split(" ");
      brewInput = brewInput.join("%20");
-     console.log(brewInput);
      query =
     "https://developers.zomato.com/api/v2.1/search?q=" + brewInput + "&lat=" +
     lat +
@@ -157,7 +153,6 @@ $(drinkBtn).on("click", function (e) {
 } 
 else if (brewInput !== "") {
   var input = brewInput.val().trim();
-  console.log(input);
   query =
     "https://developers.zomato.com/api/v2.1/search?q=" + input + "&lat=" +
     lat +
@@ -183,9 +178,16 @@ else if (brewInput !== "") {
     method: "GET",
   }).then(function (response) {
     restaurants = response.restaurants;
-    console.log(restaurants);
     resultsDiv.removeClass("hide");
+
+    if (restaurants.length === 0) {
+      newDiv = $("<div>");
+      newDiv.html("<h2>" + "Change your search keywords for better results" + "</h2>");
+      resultsDiv.append(newDiv);
+    }
+    else{
     renderBars();
+    }
   });
 });
 
@@ -193,9 +195,11 @@ else if (brewInput !== "") {
 
 function renderConcerts() {
   if (resultNum === 0) {
-    alert("No live events within a 50 mile radius");
+    newDiv = $("<div>");
+      newDiv.html("<h2>" + "Change your search keywords for better results" + "</h2>");
+      resultsDiv.append(newDiv);
   }
-
+  
   if (resultsDiv.hasClass("hide")) {
     resultsDiv.removeClass("hide");
   }
@@ -235,7 +239,6 @@ $(musicBtn).on("click", function (e) {
   if(bluesInput.val().trim().indexOf(' ') >= 0){
     bluesInput = bluesInput.val().split(" ");
     bluesInput = bluesInput.join("%20");
-    console.log(bluesInput);
     tmUrl =
     "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&keyword=" + bluesInput + "&latlong=" +
     lat +
@@ -245,7 +248,6 @@ $(musicBtn).on("click", function (e) {
 } 
 else if (brewInput !== "") {
  var input = bluesInput.val().trim();
- console.log(input);
  tmUrl =
     "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&keyword=" + input + "&latlong=" +
     lat +
@@ -262,13 +264,6 @@ else if (brewInput !== "") {
   "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
 }
 
-
-  tmUrl =
-    "https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&latlong=" +
-    lat +
-    "," +
-    lon +
-    "&radius=100&unit=miles&apikey=jU8GzC1wG1A48BjlxlTRirxmEQwRLpAV";
   // tmUrl =
   //   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=fJ8NqHO29YPZO64hyJI671TsUFTHgAfT";
 
@@ -278,7 +273,6 @@ else if (brewInput !== "") {
   }).then(function (response) {
     resultNum = parseInt(response.page.totalElements);
     evObj = response._embedded.events;
-    console.log(evObj)
     renderConcerts();
   });
 });
