@@ -1,5 +1,7 @@
 # Brews and Blues
 
+https://akarpisz.github.io/masterproject1
+
 This is a search engine for those looking to plan a night out. Using the Zomato API and the Ticketmaster API, a user can click "allow" in the location access prompt, and receive information about the breweries and concerts closest to them. 
 
 The application will function with both inputs left blank, relying solely on the users geolocation to provide search results. The query URL is changed based on whether the user has placed search keywords in the search bar(s). The APIs are called separately, and clicking the search button on either side will return results for either concerts or breweries and bars. Results from both APIs appear in a div below. 
